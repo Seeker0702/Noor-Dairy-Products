@@ -1,0 +1,168 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Checkout{% endblock title %}
+{% block main-content %}
+
+<div class="container " style="padding-bottom:100px;">
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+<div class="row mt-5">
+    <div class="col-sm-6">
+        <h4>Order Summary</h4>
+        <hr>
+        {% for item in cart_items %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>Product: {{item.product.title}}</h5>
+                    <p>Quantity: {{item.quantity}}</p>
+                    <p class="fw-bold">Price: {{item.product.discounted_price}}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <p class="fw-bold">Total Cost + Rs. 40 = {{totalamount}}</p>
+        <small>Term and Conditions: Our website's payment section accepts various payment methods, 
+            including credit cards, debit cards, PayPal, and bank transfers. Payment processing is handled by third-party processors. Transactions are conducted in [Specify currency], and security measures are in place. Users are responsible for accurate billing info and agree to comply with our payment terms. </small>
+        </div>
+            <div class="col-sm-4 offset-sm-1">
+                <h4>Select Shipping Address</h4>
+                <hr>
+                <form method="post" id="myform">
+                    {% csrf_token %}
+                    {% for ad in add %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>{{ad.name}}</h5>
+                                <p>Mobile: {{ad.mobile}}</p>
+                                <p>{{ad.locality}} {{ad.city}} {{ad.state}} - {{ad.zipcode}}</p>
+                            </div>
+                        </div>
+                        <div class="form-check mt-2 mb-5">
+                            <input class="form-check-label fw-bold" type="radio" name="custid" id="custid{{forloop.counter}}" value="{{ad.id}}">
+                            <label for="custid{{forloop.counter}}" class="form-check-label fw-bold">Address: {{forloop.counter}}</label>
+
+                        </div>
+                    {% endfor %}
+                    <div class="form-check mb-3">
+                        <label for="totamount" class="form-label">Total Amount</label>
+                        <input type="number" class="form-control" name="totamount" value="{{totalamount}}" readonly>
+                    </div>
+                    <div class="text-end">
+                         {% comment %} <button class="btn btn-warning mt-3 px-5 fw-bold">Continue</button> {% endcomment %}
+                        {% comment %} <div id="paypal-button-container"></div> {% endcomment %}
+                        <button id="rzp-button1"  type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+ {% endblock main-content %}
+
+{% block payment-gateway %}
+
+
+ 
+ {% comment %} <script><script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+   <script>
+var options = {
+    "key": "rzp_test_NSMjwh0wWMm9mj", // Enter the Key ID generated from the Dashboard
+    "amount": "{{razoramount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Noor Dairy Products", //your business name
+    "description": "Purchase Product",
+    
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+   
+    "handler": function(response){
+        console.log("success")
+            var form = document.getElementById("myform");
+
+            window.location.href =`http://localhost:8000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${form.elements["custid"].value}`
+        } 
+
+    
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function(response){
+    alert(response.error.description);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+} </script> {% endcomment %}
+  
+{% comment %} <button id="rzp-button1">Pay</button> {% endcomment %}
+{% comment %} <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_NSMjwh0wWMm9mj", // Enter the Key ID generated from the Dashboard
+    "amount": "{{razoramount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Noor Dairy Products", //your business name
+    "description": "Purchase Product",
+    "order_id": "{{order_id}}",
+   // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+   
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>  {% endcomment %}
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_NSMjwh0wWMm9mj", // Enter the Key ID generated from the Dashboard
+    "amount": "{{razoramount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Noor Products", //your business name
+    "description": "Purchase Product",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        console.log("success")
+        var form = document.getElementById("myform");
+        window.location.href=`http://localhost:8000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${form.elements["custid"].value}`
+        //alert(response.razorpay_payment_id);
+        //alert(response.razorpay_order_id);
+        //alert(response.razorpay_signature)
+    },
+   
+
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+{% endblock payment-gateway %}
+
