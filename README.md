@@ -8,7 +8,7 @@ I have added a lot of features like.....
 *Email verification for registration
 *Strong password validation
 *login Authentication
-*Add to card
+*Add to cart
 *Secure payment integration using Razorpay Integration gateway
 *Tracking order details
 *Reset password using email
