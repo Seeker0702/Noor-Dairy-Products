@@ -74,7 +74,7 @@ https://taukir07.pythonanywhere.com/
 
 ## Tech Stack
 
-**Techonlogy** HTML, CSS, Bootsrap, Python, Django Framework
+**Techonlogy:** HTML, CSS, Bootsrap, Python, Django Framework
 
 **Payment Gateway:** Razorpay payment Gateway
 
