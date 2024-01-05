@@ -62,7 +62,6 @@ Noor Dairy Products' admin panel offers streamlined control with a user-friendly
 ![Order Status](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Order%20status.png?raw=true)
 ## Demo
 
-Insert gif or link to demo
 
 ## Link of the website, you can explore by yourself
 
