@@ -35,25 +35,49 @@ Experience the epitome of convenience and security with Noor Dairy Products - wh
 
 
 ## Admin Panel
-🔐 **Noor Dairy Products Admin Panel - Empowering Control and Efficiency** 🔐
+Noor Dairy Products' admin panel offers streamlined control with a user-friendly dashboard for real-time insights. Manage users, products, and orders effortlessly. Tailor settings, employ AI chatbot support, and ensure secure transactions. An intuitive hub for efficient e-commerce management, empowering seamless operation and strategic decision-making. 💼🚀
+## Screenshots
 
-🖥️ **Dashboard Overview:** Gain insights into key metrics, sales, and user activities at a glance. Stay informed and in control.
+![Main page](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/First%20Page.png?raw=true)
 
-👤 **User Management:** Efficiently manage customer accounts, view details, and track user activities. Ensure a secure and personalized experience.
+![Customer Registration](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Customer%20Registration.png?raw=true)
 
-🛒 **Product Management:** Add, edit, or remove products effortlessly. Control inventory, update prices, and showcase new arrivals seamlessly.
+![Login](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Login%20Page.png?raw=true)
 
-📈 **Sales Analytics:** Dive into detailed sales analytics to make informed business decisions. Monitor trends, track performance, and optimize strategies.
+![Products](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Products.png?raw=true)
 
-🛠️ **Order Processing:** Streamline order fulfillment with a comprehensive order management system. Track orders, update statuses, and manage shipments.
+![List of Products](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/List%20of%20specific%20product.png?raw=true)
 
-💼 **Admin Roles:** Assign roles and permissions for various admin users. Ensure a structured and secure approach to managing your e-commerce platform.
+![Product Details](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Details%20of%20product.png?raw=true)
 
-🚫 **User Reports and Moderation:** Identify and address issues promptly. Access user reports and implement moderation tools for a safe and enjoyable shopping environment.
 
-💻 **Technical Settings:** Fine-tune technical configurations, integrate APIs, and manage third-party services for a seamless and optimized platform.
+![Cart](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Shopping%20Cart.png?raw=true)
 
-⚙️ **Customization:** Tailor the admin panel to suit your unique business needs. From themes to notifications, personalize the interface for maximum efficiency.
+![Order Placing](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Order%20placing.png?raw=true)
+
+![Payment](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Paymanet.png?raw=true)
+
+![Payment Done](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Payment%20done.png?raw=true)
+
+![Order Status](https://github.com/Seeker0702/Noor-Dairy-Products/blob/main/Screenshots/Order%20status.png?raw=true)
+## Demo
+
+Insert gif or link to demo
+
+## Link of the website, you can explore by yourself
+
+https://taukir07.pythonanywhere.com/
+
+
+
+
+
+
+## Tech Stack
+
+**Techonlogy** HTML, CSS, Bootsrap, Python, Django Framework
+
+**Payment Gateway:** Razorpay payment Gateway
 
 
 
